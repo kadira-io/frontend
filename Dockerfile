@@ -1,6 +1,8 @@
+FROM    quay.io/chriswessels/meteor-tupperware
 #FROM meteorhacks/meteord:base
-FROM jshimko/meteor-launchpad:latest
+#FROM jshimko/meteor-launchpad:latest
 
-COPY ./ /app
+
+#COPY ./ /app
 #ENV METEOR_ALLOW_SUPERUSER 1
 #RUN bash -x +e $METEORD_DIR/on_build.sh
