@@ -1,15 +1,13 @@
-ServiceConfiguration.configurations.remove({
-  service: "meteor-developer"
-});
-
-var localConfigs = {
-  clientId: "HcempmSyaawiyb4G4",
-  secret: "snC3snsmTebC8HHCwwhqhHaAzAFxtFsQRL"
-};
-
-var meteorDevelopersInfo = Meteor.settings.meteorDevelopers || localConfigs;
-
-meteorDevelopersInfo = _.extend({
-  service: "meteor-developer"
-}, meteorDevelopersInfo);
-ServiceConfiguration.configurations.insert(meteorDevelopersInfo);
+/**
+ * Set the service configuration
+ *
+ * @see https://atmospherejs.com/meteor/service-configuration
+ * @type {String}
+ */
+ServiceConfiguration.configurations.upsert(
+  {service: "meteor-developer"},
+  {$set: _.extend(
+    {service: "meteor-developer" },
+    Meteor.settings.meteorDevelopers
+  )}
+);
