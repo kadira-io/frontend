@@ -34,7 +34,7 @@ component.state.canShowAlertsNav = function() {
   return !!app;
 };
 
-component.state.canShowSeetingsTab = function() {
+component.state.canShowSettingsTab = function() {
   var appId = FlowRouter.getParam("appId");
   var app = Apps.findOne({_id: appId}, {fields: {owner: 1}});
   return !!app;
